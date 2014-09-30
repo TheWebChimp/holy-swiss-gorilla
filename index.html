@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Holy Swiss Gorilla</title>
+	<style>
+		#test {
+			height: 30px;
+			background: red;
+		}
+		.hide {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		<input type="radio" name="foo" value="foo" id="" data-toggle="visibility" data-target="#test" data-value="baz">
+		<input type="radio" name="foo" value="bar" id="">
+		<input type="radio" name="foo" value="baz" id="">
+		<input type="checkbox" name="" id="" data-toggle="visibility" data-target="#test">
+		<select data-toggle="visibility" data-target="#test" data-value="bar">
+			<option value="foo">Le foo</option>
+			<option value="bar">Le bar</option>
+			<option value="baz">Le baz</option>
+		</select>
+		<a href="#test" data-toggle="visibility">Click me</a>
+		<div id="test" class="hide">
+			<input type="text" name="test" id="" disabled="disabled">
+		</div>
+		<button type="submit">Send</button>
+	</form>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="jquery.holyswissgorilla.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			// Stuff to do as soon as the DOM is ready;
+		});
+	</script>
+</body>
+</html>
