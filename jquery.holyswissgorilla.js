@@ -16,6 +16,28 @@
 				// Just toggle all the fields
 				this.find('input, select, textarea').prop({ disabled: !options.enabled });
 			},
+			toggleTabs: function(options) {
+				var opts = $.extend(true, {
+					enabled: false
+				}, $.fn.holySwissGorilla.defaults, options);
+				// Bind events
+				this.on('click', function(e) {
+					var el = $(this),
+						href = el.attr('href'),
+						target = $(href),
+						container = target.parent(),
+						li = el.closest('li'),
+						ul = li.closest('ul');
+					e.preventDefault();
+					ul.find('li').removeClass('active');
+					li.addClass('active');
+					// Hide elements
+					container.children().hide();
+					target.show();
+				});
+				// Initialize
+				this.closest('ul').find('a').first().trigger('click');
+			},
 			toggleVisibility: function(options) {
 				switch ( this.prop('tagName').toLowerCase() ) {
 					case 'input':
@@ -104,5 +126,6 @@
 	// Automagic binding
 	jQuery(document).ready(function($) {
 		$('[data-toggle=visibility]').holySwissGorilla('toggleVisibility');
+		$('[data-toggle=tabs]').holySwissGorilla('toggleTabs');
 	});
 })(jQuery);
